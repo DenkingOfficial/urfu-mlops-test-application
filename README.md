@@ -10,3 +10,10 @@
 * [Этап 3: AirFlow Pipeline](https://github.com/DenkingOfficial/urfu-mlops-test-application/tree/master/application-stage-3)
 * [Этап 4: MLFlow трекинг](https://github.com/DenkingOfficial/urfu-mlops-test-application/tree/master/application-stage-4)
 * [Дополнительная схема](https://github.com/DenkingOfficial/urfu-mlops-test-application/tree/master/application-stage-additional)
+
+В процессе проектирования главный акцент делался на RAG-инфраструктуре, но есть мысли по поводу улучшения архитектуры:
+
+* Добавление брокеров сообщений (Redis/RabbitMQ) для кэширования и построение очередей
+* Пул агентов
+* Распределение нагрузки
+ 
