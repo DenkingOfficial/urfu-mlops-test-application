@@ -1,0 +1,30 @@
+services:
+  chromadb:
+    image: ghcr.io/chroma-core/chroma:latest
+    container_name: chromadb
+    environment:
+      - IS_PERSISTENT=TRUE
+    volumes:
+      - chroma-data:/data/
+    networks:
+      - rag-net
+
+  rag-system:
+    build: .
+    env_file: .env
+    container_name: rag-system
+    depends_on:
+      - chromadb
+    ports:
+      - 8000:8000
+    restart: unless-stopped
+    networks:
+      - rag-net
+
+networks:
+  rag-net:
+    driver: bridge
+
+volumes:
+  chroma-data:
+    driver: local
